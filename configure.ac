@@ -6,10 +6,14 @@ AC_INIT([ToDoize], [0.0], [cthuun@cthuun.fr])
 
 # Checks for programs.
 AC_PROG_CC
+AM_PROG_CC_C_O
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile src/Makefile src/tests/Makefile])
+AC_CONFIG_FILES([Makefile \
+src/Makefile \
+src/tests/Makefile \
+src/includes/Makefile])
 AC_CHECK_HEADERS([stdio.h])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 
 # Checks for libraries.
 

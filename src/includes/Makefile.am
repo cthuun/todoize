@@ -1,1 +1,2 @@
-noinst_HEADERS=todoize_options.h
+noinst_HEADERS=todoize_options.h \
+todoize_error.h

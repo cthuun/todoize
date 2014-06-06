@@ -1,1 +1,6 @@
 ToDoize want to be an opensource, free and secure ToDo list.
+
+
+== Build ==
+
+autoreconf -vfi && ./configure && make && make install

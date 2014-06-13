@@ -4,5 +4,6 @@ SUBDIRS=tests \
 bin_PROGRAMS=todoize
 
 todoize_SOURCES=todoize_main.c \
-todoize_options.c
+todoize_options.c \
+  todoize_display.c
 todoize_CPPFLAGS=-I$(top_srcdir)/src/includes

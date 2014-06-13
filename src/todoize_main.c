@@ -25,5 +25,5 @@ int main(int argc, char** argv)
     todoize_help_display(argv[0]);
     return TODOIZE_ERROR_HELP;
   }
-  return TODOIZE_ERROR_NONE;
+  return todoize_display_main();
 }

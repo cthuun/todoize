@@ -1,3 +1,5 @@
 SUBDIRS=src
 
 TESTS=src/tests/test1
+
+ACLOCAL_AMFLAGS=-Im4

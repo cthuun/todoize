@@ -4,7 +4,7 @@
 #include <todoize_options.h>
 #include <todoize_error.h>
 
-static inline todoize_help_display(char* name)
+static inline void todoize_help_display(char* name)
 {
   fprintf(stdout, "%s - %s\n", PACKAGE_NAME, PACKAGE_VERSION);
   fprintf(stdout, "--\n\n");

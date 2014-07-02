@@ -8,7 +8,8 @@ AC_INIT([ToDoize], [0.0], [cthuun@cthuun.fr])
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile \
+AC_CONFIG_FILES([doxygen.conf \
+    Makefile \
 src/Makefile \
 src/tests/Makefile \
 src/includes/Makefile])

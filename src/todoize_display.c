@@ -4,13 +4,16 @@
 static void todoize_display_help(void)
 {
   clear();
-  printw("Hello Help !!!");  /* Print Hello World      */
-  refresh();      /* Print it on to the real screen */
+  printw("key       action\n");
+  printw("[?|h]     display help (this)\n");
+  printw("q         quit\n");
+  refresh();
   getch();
 }
 
 /**
- *
+ * \return #e_todoize_error
+ * \brief test
  * This is the main function of the program.
  *
  */

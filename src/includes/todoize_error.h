@@ -2,12 +2,12 @@
 # define TODOIZE_ERROR_H_
 
 /**
- * Test
+ * \brief The error codes used in ToDoize
  */
 typedef enum {
   TODOIZE_ERROR_NONE, /**< No error, everithing goes right */
-  TODOIZE_ERROR_HELP,
-  TODOIZE_ERROR_GETOPT
+  TODOIZE_ERROR_HELP, /**< Displaying help, not really an error */
+  TODOIZE_ERROR_GETOPT /**< An option passed to the program was not recognized */
 } e_todoize_error;
 
 #endif /* !TODOIZE_ERROR_H_ */

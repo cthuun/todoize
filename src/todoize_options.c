@@ -1,4 +1,5 @@
 #include <todoize_options.h>
+#include <todoize_error.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <getopt.h>
@@ -7,6 +8,10 @@ static inline void todoize_options_init(t_todoize_options* todoize_options)
 {
   todoize_options->display_help = 0;
 }
+
+/**
+  * \brief Parse the command line and fill #t_todoize_options accordinately.
+  */
 
 int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
 {
@@ -26,7 +31,8 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
         todoize_options->display_help = 1;
         break;
       default:
-        return 1;
+
+        return TODOIZE_ERROR_GETOPT;
     }
   return 0;
 }

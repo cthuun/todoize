@@ -14,6 +14,7 @@ src/Makefile \
 src/tests/Makefile \
 src/includes/Makefile])
 AC_CHECK_HEADERS([stdio.h])
+AC_CHECK_HEADERS([assert.h])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CHECK_LIB([ncurses],[initscr])

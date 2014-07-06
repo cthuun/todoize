@@ -2,7 +2,7 @@
 #define TODOIZE_OPTIONS_H_
 
 /**
- * Internal struct filled by #todoize_getopt
+ * Internal struct filled by #todoize_getopt.
  */
 typedef struct s_todoize_options {
   char display_help; /**< Display help ? */

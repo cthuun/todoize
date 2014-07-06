@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <getopt.h>
 
+/**
+ * \param[out] todoize_options The struct to be initialized with the default values.
+ * \brief Initialize todoize_options with default value.
+ * \return Nothing (void)
+ */
 static inline void todoize_options_init(t_todoize_options* todoize_options)
 {
   todoize_options->display_help = 0;
@@ -11,8 +16,11 @@ static inline void todoize_options_init(t_todoize_options* todoize_options)
 }
 
 /**
-  * \brief Parse the command line and fill #t_todoize_options accordinately.
-  */
+ * \param[in] argc The number of params given to the program.
+ * \param[in] argv The array of the params given to the program.
+ * \param[out] todoize_options The struct filled with information retrived from commandline.
+ * \brief Parse the command line and fill #t_todoize_options accordinately.
+ */
 
 int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
 {

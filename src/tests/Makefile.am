@@ -11,4 +11,6 @@ test_getopt_help_with_known_SOURCES=test_getopt_help_with_known.c $(top_srcdir)/
 
 AM_CFLAGS=-I$(top_srcdir)/src/includes
 
+DISTCLEANFILES=Makefile.in
+
 TESTS=$(check_PROGRAMS)

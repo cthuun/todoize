@@ -1,6 +1,7 @@
 #ifndef TODOIZE_OPTIONS_H_
 #define TODOIZE_OPTIONS_H_
 
+#include <stdint.h>
 /**
  * Internal struct filled by #todoize_getopt.
  */

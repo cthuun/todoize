@@ -13,15 +13,19 @@ static inline void todoize_options_init(t_todoize_options* todoize_options)
 {
   todoize_options->display_help = 0;
   todoize_options->display_version = 0;
+
+#ifdef SQLITE3
+  sql3_db = NULL;
+#endif
 }
 
 /**
  * \param[in] argc The number of params given to the program.
  * \param[in] argv The array of the params given to the program.
  * \param[out] todoize_options The struct filled with information retrived from commandline.
+ * \return #todoize_error
  * \brief Parse the command line and fill #t_todoize_options accordinately.
  */
-
 int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
 {
   int opt = 0;
@@ -31,10 +35,11 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
     {"version", no_argument, 0, 'v'},
     {0, 0, 0, 0}
   };
+  char short_options[] = "hv";
 
   todoize_options_init(todoize_options);
 
-  while ((opt = getopt_long(argc, argv, "hv", long_options, &options_index)) != -1)
+  while ((opt = getopt_long(argc, argv, short_options, long_options, &options_index)) != -1)
     switch (opt)
     {
       case 'h':

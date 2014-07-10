@@ -3,6 +3,7 @@
 #include <config.h>
 #include <todoize_options.h>
 #include <todoize_error.h>
+#include <todoize_debug.h>
 
 static inline void todoize_version_display(char* name)
 {
@@ -23,7 +24,7 @@ int main(int argc, char** argv)
 
   if (todoize_getopt(argc, argv, &todoize_options))
   {
-    fprintf(stderr, "Fail analyze options - please double check them (try \"%s -h\")\n", argv[0]);
+    TD_ERR("Fail analyze options - please double check them (try \"%s -h\")\n", argv[0]);
     return TODOIZE_ERROR_GETOPT;
   }
   if (todoize_options.display_help)

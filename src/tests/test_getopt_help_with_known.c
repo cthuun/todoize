@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <todoize_options.h>
 #include <todoize_error.h>
+
 int main(void)
 {
   char *opt_str[] = {"", "--help", "-v"};

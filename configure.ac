@@ -19,6 +19,17 @@ AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CHECK_LIB([ncurses],[initscr])
 
+AC_ARG_ENABLE(debug,
+    AC_HELP_STRING([--enable-debug], "Enable the support of debug"),
+    [case "${enableval}" in
+    yes) debug=true ;;
+    no) debug=false ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-debug]) ;;
+    esac],[debug=false]
+    )
+
+AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
+
 # Checks for libraries.
 
 # Checks for header files.

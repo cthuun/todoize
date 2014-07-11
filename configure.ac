@@ -11,6 +11,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([doxygen.conf \
     Makefile \
 src/Makefile \
+src/sqlite3/Makefile \
 src/tests/Makefile \
 src/includes/Makefile])
 AC_CHECK_HEADERS([stdio.h])
@@ -28,6 +29,17 @@ AC_ARG_ENABLE(debug,
     esac],[debug=false]
     )
 
+AC_ARG_ENABLE(sqlite3,
+    AC_HELP_STRING([--enable-sqlite3], "Enable the support of sqlite3"),
+    [case "${enableval}" in
+    yes) sqlite3=true ;;
+    no) sqlite3=false ;;
+    *) AC_MSG_ERROR([bad value ${enableval} for --enable-sqlite3]) ;;
+    esac],[sqlite3=false]
+    )
+
+AS_IF([test x$sqlite3 = xtrue], [AC_CHECK_LIB([sqlite3],[sqlite3_open])])
+AM_CONDITIONAL([SQLITE3], [test x$sqlite3 = xtrue])
 AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 
 # Checks for libraries.

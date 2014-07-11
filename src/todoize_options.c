@@ -4,6 +4,19 @@
 #include <stdio.h>
 #include <getopt.h>
 
+#ifdef SQLITE3
+# define OPT_ADD_SQLITE3(x) (x "b:")
+#else
+# define OPT_ADD_SQLITE3(x) (x)
+#endif /* SQLITE3 */
+
+void todoize_options_close(t_todoize_options todoize_options)
+{
+#ifdef SQLITE3
+  if (todoize_options.sql3_db)
+    free(todoize_options.sql3_db);
+#endif /* SQLITE3 */
+}
 /**
  * \param[out] todoize_options The struct to be initialized with the default values.
  * \brief Initialize todoize_options with default value.
@@ -15,8 +28,8 @@ static inline void todoize_options_init(t_todoize_options* todoize_options)
   todoize_options->display_version = 0;
 
 #ifdef SQLITE3
-  sql3_db = NULL;
-#endif
+  todoize_options->sql3_db = NULL;
+#endif /* SQLITE3 */
 }
 
 /**
@@ -33,9 +46,12 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
   static struct option long_options[] = {
     {"help", no_argument, 0, 'h'},
     {"version", no_argument, 0, 'v'},
+#ifdef SQLITE3
+    {"sqlite3_db", 1, 0, 'b'},
+#endif /* SQLITE3 */
     {0, 0, 0, 0}
   };
-  char short_options[] = "hv";
+  char short_options[] = OPT_ADD_SQLITE3("hv");
 
   todoize_options_init(todoize_options);
 
@@ -48,6 +64,11 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
       case 'v':
         todoize_options->display_version = 1;
         break;
+#ifdef SQLITE3
+      case 'b':
+        todoize_options->sql3_db = strdup(optarg);
+        break;
+#endif /* SQLITE3 */
       default:
 
         return TODOIZE_ERROR_GETOPT;

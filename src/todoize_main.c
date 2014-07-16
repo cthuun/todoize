@@ -43,6 +43,9 @@ int main(int argc, char** argv)
     TD_ERR("Fail analyze options - please double check them (try \"%s -h\")\n", argv[0]);
     return TODOIZE_ERROR_GETOPT;
   }
+#ifdef DEBUG
+  todoize_options_dump(todoize_options);
+#endif /* DEBUG */
   /* Display help and return */
   if (todoize_options.display_help)
   {

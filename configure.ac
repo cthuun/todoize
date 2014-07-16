@@ -51,3 +51,9 @@ AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 # Checks for library functions.
 
 AC_OUTPUT
+echo "------------"
+echo ""
+echo "sqlite3 support:    ${sqlite3}"
+echo "debug support:      ${debug}"
+echo ""
+echo "------------"

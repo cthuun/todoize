@@ -8,4 +8,5 @@ int main(void)
   char* cmdline[] = {"", "-b", db};
   t_todoize_options options;
   assert(todoize_getopt(3, cmdline, &options) == TODOIZE_ERROR_GETOPT);
+  return 0;
 }

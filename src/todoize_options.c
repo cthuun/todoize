@@ -1,5 +1,6 @@
 #include <todoize_options.h>
 #include <todoize_error.h>
+#include <todoize_debug.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <getopt.h>
@@ -32,6 +33,18 @@ static inline void todoize_options_init(t_todoize_options* todoize_options)
 #endif /* SQLITE3 */
 }
 
+#ifdef DEBUG
+void todoize_options_dump(t_todoize_options* todoize_options)
+{
+  TD_DEBUG("t_todoize_options todoize_options = {\n");
+  TD_DEBUG("\tdisplay_help = %d\n", todoize_options->display_help);
+  TD_DEBUG("\tdisplay_version = %d\n", todoize_options->display_version);
+#ifdef SQLITE3
+  TD_DEBUG("\tsql3_db = %s", todoize_options->sql3_db);
+#endif /* SQLITE3 */
+  TD_DEBUG("}\n");
+}
+#endif /* DEBUG */
 /**
  * \param[in] argc The number of params given to the program.
  * \param[in] argv The array of the params given to the program.
@@ -52,6 +65,8 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
     {0, 0, 0, 0}
   };
   char short_options[] = OPT_ADD_SQLITE3("hv");
+  TD_DEBUG("argc: %d\n", argc);
+  TD_DEBUG("getopt short_options: %s\n", short_options);
 
   todoize_options_init(todoize_options);
 
@@ -70,8 +85,8 @@ int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
         break;
 #endif /* SQLITE3 */
       default:
-
         return TODOIZE_ERROR_GETOPT;
+        break;
     }
   return TODOIZE_ERROR_NONE;
 }

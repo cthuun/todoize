@@ -18,4 +18,8 @@ int todoize_getopt(int                argc,
                    t_todoize_options* todoize_options);
 void todoize_options_close(t_todoize_options todoize_options);
 
+#ifdef DEBUG
+void todoize_options_dump(t_todoize_options* todoize_options);
+#endif
+
 #endif /* !TODOIZE_OPTIONS_H_ */

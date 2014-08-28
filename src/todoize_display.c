@@ -1,5 +1,4 @@
-#include <ncurses.h>
-#include <todoize_error.h>
+#include <todoize_display.h>
 
 static void todoize_display_help(void)
 {

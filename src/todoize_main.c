@@ -4,6 +4,7 @@
 #include <todoize_options.h>
 #include <todoize_error.h>
 #include <todoize_debug.h>
+#include <todoize_display.h>
 
 /**
  * \param[in] name The name of the binary.
@@ -53,7 +54,7 @@ int main(int argc, char** argv)
   }
 #ifdef DEBUG
   /* If we are in debug mode we may want to see the options set. */
-  todoize_options_dump(todoize_options);
+  todoize_options_dump(&todoize_options);
 #endif /* DEBUG */
   /* Display help and return */
   if (todoize_options.display_help)

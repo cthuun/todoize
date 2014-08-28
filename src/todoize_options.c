@@ -57,7 +57,7 @@ void todoize_options_dump(t_todoize_options* todoize_options)
 int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)
 {
   int opt = 0;
-  unsigned int options_index = 0;
+  int options_index = 0;
   static struct option long_options[] = {
     {"help", no_argument, 0, 'h'},
     {"version", no_argument, 0, 'v'},

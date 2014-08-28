@@ -5,14 +5,22 @@
 #include <todoize_error.h>
 #include <todoize_debug.h>
 
-static inline void todoize_version_display(char* name)
+/**
+ * \param[in] name The name of the binary.
+ * \brief This function display the name and the version of the program
+ */
+static inline void todoize_version_display(const char* name)
 {
-  fprintf(stdout, "%s - %s\n", PACKAGE_NAME, PACKAGE_VERSION);
+  fprintf(stdout, "%s - %s\n", name, PACKAGE_VERSION);
 }
 
-static inline void todoize_help_display(char* name)
+/**
+ * \param[in] name The name of the binary.
+ * \brief Display the usage.
+ */
+static inline void todoize_help_display(const char* name)
 {
-  fprintf(stdout, "%s - %s\n", PACKAGE_NAME, PACKAGE_VERSION);
+  todoize_version_display(name);
   fprintf(stdout, "--\n\n");
   fprintf(stdout, "--help\t\t-h\t\tDisplay help (this)\n");
   fprintf(stdout, "--vesion\t-v\t\tDisplay information about the package\n");
@@ -23,10 +31,10 @@ static inline void todoize_help_display(char* name)
  * Welcome to the documentation of ToDoize, hope the project please you.
  */
 /**
- * \param[in] argc
- * \param[in] argv
- * \return #todoize_error
- * \brief
+ * \param[in] argc The number of parameters.
+ * \param[in] argv The array of parameters.
+ * \return #e_todoize_error
+ * \brief The entry point, initialize everything and start #todoize_display_main
  */
 int main(int argc, char** argv)
 {
@@ -35,7 +43,7 @@ int main(int argc, char** argv)
                                        it should be passed all over
                                        the program to be able to determine
                                        the comportement of ToDoize */
-  int ret = TODOIZE_ERROR_NONE;
+  int ret = TODOIZE_ERROR_NONE; /**< By default everything goes right */
 
   /* We parse the command line and fill todoize_options */
   if (todoize_getopt(argc, argv, &todoize_options))
@@ -44,6 +52,7 @@ int main(int argc, char** argv)
     return TODOIZE_ERROR_GETOPT;
   }
 #ifdef DEBUG
+  /* If we are in debug mode we may want to see the options set. */
   todoize_options_dump(todoize_options);
 #endif /* DEBUG */
   /* Display help and return */
@@ -64,7 +73,7 @@ int main(int argc, char** argv)
    * todoize_conf_file_parse(todoize_options);
    */
 
-  ret = todoize_display_main();
-  todoize_options_close(todoize_options);
+  ret = todoize_display_main(); /* Run the program */
+  todoize_options_close(todoize_options); /* Free the options */
   return ret;
 }

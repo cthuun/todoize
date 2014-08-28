@@ -49,7 +49,7 @@ void todoize_options_dump(t_todoize_options* todoize_options)
  * \param[in] argc The number of params given to the program.
  * \param[in] argv The array of the params given to the program.
  * \param[out] todoize_options The struct filled with information retrived from commandline.
- * \return #todoize_error
+ * \return #e_todoize_error
  * \brief Parse the command line and fill #t_todoize_options accordinately.
  */
 int todoize_getopt(int argc, char** argv, t_todoize_options* todoize_options)

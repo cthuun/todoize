@@ -8,17 +8,14 @@ AC_INIT([ToDoize], [0.0], [cthuun@cthuun.fr])
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([doxygen.conf \
-    Makefile \
-src/Makefile \
-src/sqlite3/Makefile \
-src/tests/Makefile \
-src/includes/Makefile])
-AC_CHECK_HEADERS([stdio.h])
-AC_CHECK_HEADERS([assert.h])
+AC_CONFIG_FILES([ doxygen.conf          \
+                  Makefile              \
+                  src/Makefile          \
+                  src/sqlite3/Makefile  \
+                  src/tests/Makefile    \
+                  src/includes/Makefile ])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIR([m4])
-AC_CHECK_LIB([ncurses],[initscr])
 
 AC_ARG_ENABLE(debug,
     AC_HELP_STRING([--enable-debug], "Enable the support of debug"),
@@ -38,13 +35,16 @@ AC_ARG_ENABLE(sqlite3,
     esac],[sqlite3=false]
     )
 
-AS_IF([test x$sqlite3 = xtrue], [AC_CHECK_LIB([sqlite3],[sqlite3_open])])
 AM_CONDITIONAL([SQLITE3], [test x$sqlite3 = xtrue])
 AM_CONDITIONAL([DEBUG], [test x$debug = xtrue])
 
 # Checks for libraries.
+AC_CHECK_LIB([ncurses],[initscr])
+AS_IF([test x$sqlite3 = xtrue], [AC_CHECK_LIB([sqlite3],[sqlite3_open])])
 
 # Checks for header files.
+AC_CHECK_HEADERS([stdio.h])
+AC_CHECK_HEADERS([assert.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 

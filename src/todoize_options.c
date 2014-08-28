@@ -2,7 +2,9 @@
 #include <todoize_error.h>
 #include <todoize_debug.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <getopt.h>
 
 #ifdef SQLITE3

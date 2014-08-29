@@ -2,6 +2,8 @@
 #include <todoize_options.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
+
 int main(void)
 {
   char  db[] = "test";
@@ -10,4 +12,5 @@ int main(void)
   assert(todoize_getopt(3, cmdline, &options) == TODOIZE_ERROR_NONE);
   assert(strcmp(db, options.sql3_db) == 0);
   todoize_options_close(options);
+  return 0;
 }

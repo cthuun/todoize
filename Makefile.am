@@ -4,7 +4,7 @@ ACLOCAL_AMFLAGS=-Im4
 
 DISTCHECK_CONFIGURE_FLAGS="--enable-sqlite3"
 
-AM_CFLAGS=-W -Wall -Werror
+AM_CFLAGS=-W -Wall -Werror -Wextra
 
 if DEBUG
 AM_CFLAGS+=-DDEBUG

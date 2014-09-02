@@ -17,7 +17,8 @@ AM_CPPFLAGS=$(AM_CFLAGS)
 
 export AM_CFLAGS AM_CPPFLAGS
 
-DISTCLEANFILES=doxygen.conf Makefile.in
+DISTCLEANFILES=doxygen.conf
+MAINTAINERCLEANFILES=Makefile.in
 
 .PHONY: doc
 

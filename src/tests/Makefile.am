@@ -1,4 +1,4 @@
-DISTCLEANFILES=Makefile.in
+MAINTAINERCLEANFILES=Makefile.in
 
 AM_CFLAGS=-I$(top_srcdir)/src/includes
 

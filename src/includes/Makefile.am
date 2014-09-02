@@ -3,4 +3,4 @@ todoize_error.h \
   todoize_debug.h \
   todoize_display.h
 
-DISTCLEANFILES=Makefile.in
+MAINTAINERCLEANFILES=Makefile.in

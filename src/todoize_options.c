@@ -13,7 +13,7 @@
 # define OPT_ADD_SQLITE3(x) (x)
 #endif /* SQLITE3 */
 
-void todoize_options_close(t_todoize_options todoize_options)
+void todoize_options_close(__attribute__((unused)) t_todoize_options todoize_options)
 {
 #ifdef SQLITE3
   if (todoize_options.sql3_db)

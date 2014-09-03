@@ -42,7 +42,7 @@ void todoize_options_dump(t_todoize_options* todoize_options)
   TD_DEBUG("\tdisplay_help = %d\n", todoize_options->display_help);
   TD_DEBUG("\tdisplay_version = %d\n", todoize_options->display_version);
 #ifdef SQLITE3
-  TD_DEBUG("\tsql3_db = %s", todoize_options->sql3_db);
+  TD_DEBUG("\tsql3_db = %s\n", todoize_options->sql3_db);
 #endif /* SQLITE3 */
   TD_DEBUG("}\n");
 }

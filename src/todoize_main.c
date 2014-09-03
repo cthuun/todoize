@@ -25,6 +25,9 @@ static inline void todoize_help_display(const char* name)
   fprintf(stdout, "--\n\n");
   fprintf(stdout, "--help\t\t-h\t\tDisplay help (this)\n");
   fprintf(stdout, "--vesion\t-v\t\tDisplay information about the package\n");
+#ifdef SQLITE3
+  fprintf(stdout, "--sql3_db\t-b\t\tSet the path of the sql3lite database\n");
+#endif /* SQLITE3 */
 }
 
 /**

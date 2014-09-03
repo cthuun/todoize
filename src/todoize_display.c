@@ -10,6 +10,12 @@ static void todoize_display_help(void)
   getch();
 }
 
+/**
+ * \brief Show a screen for adding a new entry in the todolist
+ */
+static void todoize_display_new_entry()
+{
+}
 
 /**
  * \brief Display the entries in the todolist.
@@ -29,7 +35,7 @@ static void todoize_display_entries()
  */
 int todoize_display_main(void)
 {
-  int key_pressed;
+  int key_pressed = 0;
   initscr();      /* Start curses mode      */
   noecho(); /* Do not print on screen when getch() */
   todoize_display_entries();
@@ -39,6 +45,9 @@ int todoize_display_main(void)
       case 'h':
       case '?':
         todoize_display_help();
+        break;
+      case 'n':
+        todoize_display_new_entry();
         break;
       default:
         break;

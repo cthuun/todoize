@@ -10,6 +10,17 @@ static void todoize_display_help(void)
   getch();
 }
 
+
+/**
+ * \brief Display the entries in the todolist.
+ */
+static void todoize_display_entries()
+{
+  clear();
+  printw("Hello World !!!");  /* Print Hello World      */
+  refresh();      /* Print it on to the real screen */
+}
+
 /**
  * \return #e_todoize_error
  * \brief test
@@ -21,21 +32,18 @@ int todoize_display_main(void)
   int key_pressed;
   initscr();      /* Start curses mode      */
   noecho(); /* Do not print on screen when getch() */
-  printw("Hello World !!!");  /* Print Hello World      */
-  refresh();      /* Print it on to the real screen */
+  todoize_display_entries();
   while (((key_pressed = getch()) != 'q'))      /* Wait for user input */
   {
     switch (key_pressed) {
       case 'h':
       case '?':
         todoize_display_help();
-        clear();
-        printw("Hello World !!!");  /* Print Hello World      */
-        refresh();      /* Print it on to the real screen */
         break;
       default:
         break;
     }
+    todoize_display_entries();
   }
   endwin();     /* End curses mode      */
   return TODOIZE_ERROR_NONE;

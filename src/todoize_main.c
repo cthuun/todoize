@@ -77,6 +77,8 @@ int main(int argc, char** argv)
    * todoize_conf_file_parse(todoize_options);
    */
 
+  todoize_display_init();
+  ret = todoize_display_pre_main(); /* Dislay "Press ? to get help" during a short period */
   ret = todoize_display_main(); /* Run the program */
   todoize_options_close(todoize_options); /* Free the options */
   return ret;

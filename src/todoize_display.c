@@ -27,6 +27,22 @@ static void todoize_display_entries()
   refresh(); /* Print it on to the real screen */
 }
 
+void todoize_display_init(void)
+{
+  initscr(); /* Start curses mode */
+  noecho(); /* Do not print on screen when getch() */
+}
+
+int todoize_display_pre_main(void)
+{
+  clear();
+  printw("Press '?' to get help.\n");
+  refresh();
+  sleep(1);
+
+  return TODOIZE_ERROR_NONE;
+}
+
 /**
  * \return #e_todoize_error
  * \brief This funtion process the user events.
@@ -36,8 +52,6 @@ static void todoize_display_entries()
 int todoize_display_main(void)
 {
   int key_pressed = 0; /**< The key which is pressed */
-  initscr(); /* Start curses mode */
-  noecho(); /* Do not print on screen when getch() */
   todoize_display_entries();
   while (((key_pressed = getch()) != 'q')) /* Wait for user input */
   {

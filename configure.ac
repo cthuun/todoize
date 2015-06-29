@@ -13,7 +13,7 @@ AC_CONFIG_FILES([ doxygen.conf          \
                   src/Makefile          \
                   src/sqlite3/Makefile  \
                   src/tests/Makefile    \
-                  src/includes/Makefile ])
+                  src/include/Makefile ])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIR([m4])
 

@@ -1,6 +1,6 @@
 MAINTAINERCLEANFILES=Makefile.in
 
-AM_CFLAGS=-I$(top_srcdir)/src/includes
+AM_CFLAGS=-I$(top_srcdir)/src/include
 
 check_PROGRAMS=test1 						\
 			   test_getopt_help_short 		\
